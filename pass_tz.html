@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>跳转中...</title>
+</head>
+<body aligh="center">
+   <div align="center">
+
+     <a id="gogo" href="alipays://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=https://qr.alipay.com/c1x09028gc81oxt3dq9nk5f"</a>
+
+     <script src="https://open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
+
+<script>
+
+var ua = navigator.userAgent;
+
+var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+
+isIphone =!ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+
+isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+
+isMobile = isIphone || isAndroid;
+
+
+window.onhashchange = function() {
+    document.getElementById("gogo").click();
+  };
+  function hh() {
+     document.getElementById("gogo").click(); 
+    mqq.ui.openUrl({
+      target: 2,
+      url: "alipays://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=https://qr.alipay.com/c1x09028gc81oxt3dq9nk5f"
+    });
+  };
+  if(isMobile){  
+    setTimeout('hh();', 100);
+  }  
+</script>
+ </div>
+</body>
+</html>
