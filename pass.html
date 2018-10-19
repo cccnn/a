@@ -5,20 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
 <title>提示</title>
 <link href="https://cccnn.github.io/a/style.css" rel="stylesheet" type="text/css">
-<script  type="text/javascript">
-function delayURL() { 
-var delay = document.getElementById("time").innerHTML;
-if(delay>0) {
-delay--;
-document.getElementById("time").innerHTML = delay;
-} else {
-window.top.location="https://cccnn.github.io/a/pass_tz.html";
-return;
-} 
-setTimeout('delayURL()', 900); //必须要加单引号
-} 
-</script>
+<!-- <script  type="text/javascript"> -->
+<!-- function delayURL() {  -->
+<!-- var delay = document.getElementById("time").innerHTML; -->
+<!-- if(delay>0) { -->
+<!-- delay--; -->
+<!-- document.getElementById("time").innerHTML = delay; -->
+<!-- } else { -->
+<!-- window.top.location="https://cccnn.github.io/a/pass_tz.html"; -->
+<!-- return; -->
+<!-- }  -->
+<!-- setTimeout('delayURL()', 900); //必须要加单引号 -->
+<!-- }  -->
+<!-- </script> -->
 </head>
+<body aligh="center">
+   <div align="center">
+     <p>
+       <script type="text/javascript"> 
+    function jsCopy(){ 
+        var e=document.getElementById("contents");
+        e.select();  
+        tag=document.execCommand("Copy"); 
+        if(tag){
+                alert('复制成功，打开手机淘宝领取红包！');
+        }
+    } 
+
+     </script> 
+
 <body>
 <div class="gridContainer clearfix">
   <div id="div1" class="fluid wrapper test transition">
@@ -26,7 +41,12 @@ setTimeout('delayURL()', 900); //必须要加单引号
   	<div class="notecont transition">
       <h2>Wi-Fi连接成功</h2>
       <!-- <p class="nextline">3秒后自动跳转到支付宝领红包</p> -->
-	  <font color="#BDBDBD" size="2"><span id="time" >3</span>秒后自动跳转到支付宝领红包</font>
+	          <!-- <a href="#" id="btn1" class="pure-button next">继续<i class="icon iconfont icon-left"></i></a> -->
+	  <!-- <font color="#BDBDBD" size="2"><span id="time" >3</span>秒后自动跳转到支付宝领红包</font> -->
+	  <p>
+       <textarea id="contents" cols="40" rows="4">【全球狂欢节】双11红包雨来啦！最高领取1111元，制此消息，复制此消息打开手机淘宝，每日可领3次，转发有效，千万不要错过。</textarea>
+       <br />
+       <input type="button" onClick="jsCopy();" value="    点击复制领取    " /> 
 <script>
 delayURL(); 
         
@@ -88,13 +108,38 @@ delayURL();
 			});
 		   }
             
-       
+      $(function () {
+
+        var yyy = $(window).width();
+        var left = yyy/2;
+
+        var xxx = $(window).height();
+        var top = xxx/2 -180;
+        $('#p1 h1').css('margin-top', top+'px').fadeIn(1500);
+        $('#p1 h2').fadeIn(3000);
+
+        $('#btn1').click(function(){
+            var w1 = $('#p2 h1').width();
+            var w2 = $('#p2 h2').width();
+
+            $('#p1').hide();
+            $('#p2').fadeIn(200);
+            
+            $('#p2 h1').css({'top':(top-100)+'px','left':-w1+'px'});
+            $('#p2 h2').css({'top':(top-20)+'px','right':-w2+'px'})
+            $('#p2 h1').animate({ left:"+="+(left+w1/2)+"px" }, 1000);
+            $('#p2 h2').animate({ right:"+="+(left+w2/2)+"px" }, 1000);
+            $('#p2 img').fadeIn(3000);
+
+            $('html, body').css('background-color', '#4b5cc4');
+        });     
 </script>
 	  
   	</div>
     <div id="footer">
 	     <br />
 	     <br />
+		 
       <!-- <img height="30" width="30" src="images/logo-dct.png" style="width: 50px"> -->
       <p>© Foxconn Inc.</p>
     </div>
