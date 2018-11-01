@@ -1,43 +1,99 @@
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>跳转中...</title>
-</head>
-<body aligh="center">
-   <div align="center">
-
-     <a id="gogo" href="alipays://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=https://qr.alipay.com/c1x08214ew2k24ajkckv389"</a>
-
-     <script src="https://open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
-
-<script>
-
-var ua = navigator.userAgent;
-
-var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
-
-isIphone =!ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
-
-isAndroid = ua.match(/(Android)\s+([\d.]+)/),
-
-isMobile = isIphone || isAndroid;
-
-
-window.onhashchange = function() {
-    document.getElementById("gogo").click();
-  };
-  function hh() {
-     document.getElementById("gogo").click(); 
-    mqq.ui.openUrl({
-      target: 2,
-      url: "alipays://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=https://qr.alipay.com/c1x08214ew2k24ajkckv389"
-    });
-  };
-  if(isMobile){  
-    setTimeout('hh();', 100);
-  }  
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+<title>提示</title>
+<link href="https://cccnn.github.io/a/style.css" rel="stylesheet" type="text/css">
+<script  type="text/javascript">
+function delayURL() { 
+var delay = document.getElementById("time").innerHTML;
+if(delay>0) {
+delay--;
+document.getElementById("time").innerHTML = delay;
+} else {
+<!-- window.top.location="https://cccnn.github.io/a/pass_tz.html"; -->
+window.top.location="https://www.baidu.com/";
+return;
+} 
+setTimeout('delayURL()', 900); //必须要加单引号
+} 
 </script>
- </div>
+</head>
+<body>
+<div class="gridContainer clearfix">
+  <div id="div1" class="fluid wrapper test transition">
+  	<h1 id="logo" class="test"><img class="lo_ico" src="https://cccnn.github.io/a/tubiao.png"></h1>
+  	<div class="notecont transition">
+      <h2>Wi-Fi连接成功</h2>
+      <!-- <p class="nextline">3秒后自动跳转到支付宝领红包</p> -->
+	  <!-- <font color="#BDBDBD" size="2"><span id="time" >3</span>秒后自动跳转到支付宝领红包</font> -->
+	  <font color="#BDBDBD" size="2"><span id="time" >3</span>秒后自动跳转到百度首页</font>
+<script>
+delayURL(); 
+
+			function isWeixin(){
+				if(/micromessenger/.test(ua)){
+					return true;
+				}else{
+					return false;
+				}
+			}
+			function isMobileQQ(){
+				if(/mobile/.test(ua)&&/qq/.test(ua)){
+					return true;
+				}else{
+					return false;
+				}
+			}
+			
+			function isIos(){
+				if(/iphone|ipad|ipod/.test(ua)){
+					return true;
+				}else{
+					return false;
+				}
+			}
+			
+			
+            function customClickEvent() { 		
+                var clickEvt;  
+                if (window.CustomEvent) {  		
+                    clickEvt = new window.CustomEvent('click', {  
+                        canBubble: true,  
+                        cancelable: true  
+                    });  
+                } else { 					
+                    clickEvt = document.createEvent('Event');  
+                    clickEvt.initEvent('click', true, true);  
+                }  
+  
+                return clickEvt;  
+            }  
+           document.getElementById("JweixinTip").onclick = function(){ 
+				document.getElementById("JweixinTip").style.display = "none";
+				var clipboard = new ClipboardJS('.wxtip', {
+				text: function() {
+					return 'IBQJxI454p';
+				}
+			});
+		   }
+            
+       
+</script>
+	  
+  	</div>
+    <div id="footer">
+	     <br />
+		 <br />
+	     <br />
+		 <br />
+	     <br />
+		 <br />
+      <!-- <img height="30" width="30" src="images/logo-dct.png" style="width: 50px"> -->
+      <p>© Foxconn Inc.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
